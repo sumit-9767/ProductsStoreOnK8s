@@ -12,7 +12,7 @@ variables:
   tag: '$(Build.BuildId)'
 
 stages:
-- stage: Build
+- stage: Build_and_Push
   displayName: Build image
   jobs:
   - job: Build
@@ -27,9 +27,6 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/MvcApp/Dockerfile'
         tags: |
           $(tag)
-- stage: Push
-  displayName: Push image
-  jobs:
   - job: Push
     displayName: Push
     pool:
